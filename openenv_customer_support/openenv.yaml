@@ -1,0 +1,36 @@
+name: openenv-customer-support
+version: 0.2.0
+description: OpenEnv environment for evaluating LLM agents on realistic customer support workflows.
+tags:
+  - openenv
+  - customer-support
+  - evaluation
+  - llm
+entrypoint: openenv_customer_support/env/environment.py
+runtime:
+  language: python
+  python_version: "3.11"
+api:
+  reset: reset
+  step: step
+  state: state
+authentication:
+  env_var: HF_TOKEN
+  description: Hugging Face User Access Token used with OpenAI-compatible Hugging Face router.
+tasks:
+  - id: task1
+    name: Email Classification
+    difficulty: easy
+    reward_range: [-1.0, 1.0]
+  - id: task2
+    name: Customer Support Response Generation
+    difficulty: medium
+    reward_range: [-1.0, 1.0]
+  - id: task3
+    name: Multi-turn Customer Support Conversation
+    difficulty: hard
+    reward_range: [-1.0, 1.0]
+huggingface:
+  space_compatible: true
+  suggested_tags:
+    - openenv
